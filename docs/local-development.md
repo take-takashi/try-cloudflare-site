@@ -16,11 +16,11 @@
 - Husky は `9.1.7` に固定し、`pre-commit` では `mise run check` を実行する。
 - Husky の `post-checkout` は `node_modules` が無い場合だけ `mise run install` を実行し、新規 worktree 作成直後の依存関係を用意する。
 - `mise run dev` は FE と BE をまとめて起動する。
-- Backend は Wrangler + Hono を空きポートで起動し、そのポートを Astro に渡す。
+- `mise run dev` は root 直下の補助 script を使わず、workspace package の `dev` script を `pnpm -r --parallel --if-present dev` で起動する。
+- Backend は Wrangler + Hono で起動する。初期構成では FE へ Backend port を自動注入しない。
 - 実行直前だけ環境変数を変更する運用は禁止する。環境やモードは mise task の usage で定義した引数として渡す。
 
 ## 未決事項
 
-- `mise run dev` の具体的な orchestration 実装。
-- Astro へ Backend port を渡す方法。
-- 各 workspace package の具体的な test / build script。
+- Astro から Backend API へ接続する具体的な base URL 注入方法。
+- FE/BE をまたぐ E2E test の導入範囲。

@@ -1,0 +1,21 @@
+{
+	"name": "@try-cloudflare-site/web",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro check && astro build",
+		"test": "vitest run"
+	},
+	"dependencies": {
+		"@astrojs/cloudflare": "13.5.4",
+		"@try-cloudflare-site/api-contract": "workspace:*",
+		"astro": "6.3.7"
+	},
+	"devDependencies": {
+		"@astrojs/check": "0.9.9",
+		"typescript": "6.0.3",
+		"vitest": "4.1.7"
+	}
+}

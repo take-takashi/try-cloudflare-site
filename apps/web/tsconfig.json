@@ -1,0 +1,12 @@
+{
+	"extends": "astro/tsconfigs/strict",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@try-cloudflare-site/api-contract": [
+				"../../packages/api-contract/src/index.ts"
+			]
+		}
+	},
+	"include": [".astro/types.d.ts", "src/**/*.ts", "src/**/*.astro"]
+}
