@@ -1,0 +1,21 @@
+{
+	"name": "@try-cloudflare-site/api",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "wrangler dev",
+		"build": "tsc --noEmit",
+		"test": "vitest run"
+	},
+	"dependencies": {
+		"@try-cloudflare-site/api-contract": "workspace:*",
+		"hono": "4.12.22"
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "4.20260524.1",
+		"typescript": "6.0.3",
+		"vitest": "4.1.7",
+		"wrangler": "4.94.0"
+	}
+}

@@ -1,0 +1,9 @@
+name = "try-cloudflare-site-api"
+main = "src/index.ts"
+compatibility_date = "2026-05-28"
+
+[env.preview]
+name = "try-cloudflare-site-api-preview"
+
+[env.production]
+name = "try-cloudflare-site-api-production"

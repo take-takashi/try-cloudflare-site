@@ -1,0 +1,30 @@
+---
+import { healthResponseSchema } from "@try-cloudflare-site/api-contract";
+
+// Web 側でも共有 schema を import できることを確認し、runtime 境界は api-contract に限定する。
+// biome-ignore lint/correctness/noUnusedVariables: Astro テンプレート内で参照する値。
+const expectedHealth = healthResponseSchema.parse({
+	ok: true,
+	service: "api",
+});
+---
+
+<html lang="ja">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>try-cloudflare-site</title>
+	</head>
+	<body>
+		<main>
+			<h1>try-cloudflare-site</h1>
+			<p>Astro と Hono を Cloudflare 上で動かすための最小構成です。</p>
+			<dl>
+				<div>
+					<dt>API contract</dt>
+					<dd>{expectedHealth.service}</dd>
+				</div>
+			</dl>
+		</main>
+	</body>
+</html>
