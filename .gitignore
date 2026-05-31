@@ -146,4 +146,5 @@ vite.config.ts.timestamp-*
 *.local.*
 
 # Git worktrees
-.worktree/
+.worktree/*
+!.worktree/.gitkeep
