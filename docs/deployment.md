@@ -8,6 +8,7 @@
 - 初期の deploy env は `preview` と `production` とする。
 - GitHub Actions は `mise run` タスクを呼び出す。
 - Pull Request は `preview`、`main` への push は `production` にデプロイする。
+- PR は Draft にせず、作成時点でレビュー可能な状態にする。
 - 手動実行も用意する。
 - FE と BE の責務は分けるが、デプロイ実行入口は `mise run deploy` に集約する。
 
