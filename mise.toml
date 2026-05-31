@@ -1,5 +1,42 @@
 [tools]
 node = "24"
+pnpm = "11.5.0"
 
 [settings]
 lockfile = true
+
+[tasks.install]
+description = "依存関係をインストールする"
+run = "pnpm install"
+
+[tasks.dev]
+description = "開発サーバーを起動する"
+run = "pnpm -r --parallel --if-present dev"
+
+[tasks.lint]
+description = "静的解析を実行する"
+run = "pnpm exec biome check ."
+
+[tasks.format]
+description = "フォーマットを適用する"
+run = "pnpm exec biome check --write ."
+
+[tasks.test]
+description = "テストを実行する"
+run = "pnpm -r --if-present test"
+
+[tasks."test:all"]
+description = "すべてのテストを実行する"
+depends = ["test"]
+
+[tasks.check]
+description = "日常的な軽量検証を実行する"
+depends = ["lint", "test"]
+
+[tasks.build]
+description = "ビルドを実行する"
+run = "pnpm -r --if-present build"
+
+[tasks.verify]
+description = "PR 前の総合検証を実行する"
+depends = ["check", "test:all", "build"]

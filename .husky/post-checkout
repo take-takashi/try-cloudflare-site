@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+if [ ! -d node_modules ]; then
+	mise run install
+fi
