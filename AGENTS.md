@@ -43,7 +43,13 @@
 
 - `mise run dev` はローカル開発に必要な FE + BE をまとめて起動する。
 - Backend は Wrangler + Hono を空きポートで起動し、そのポートを Astro に渡す。
+- 開発は t-wada 流 TDD を基本とする。
+- Unit Test / Component Test は原則として先に書く。
+- Integration Test / E2E Test は後追い作成も許可するが、主要導線は必ず保護する。
+- テスト、実装、テストコードには、意味のある塊ごとに日本語コメントで意図を書く。
+- ad-hoc な変更、根拠のないフォールバック、場当たり的な分岐を避ける。
 - 詳細は `docs/local-development.md` を参照する。
+- 開発手法の詳細は `docs/development-methodology.md` を参照する。
 
 ## デプロイ
 
@@ -67,6 +73,7 @@
 ## Git
 
 - commit は Conventional Commits 形式にし、本文は日本語で書く。
+- PR を作成する際は Draft にしない。作成時点でレビュー可能な状態にする。
 - hook が定義されている場合は迂回しない。
 - pre-commit は軽量検証のみを想定し、最終確認は必要に応じて `mise run check` または `mise run verify` で行う。
 - 複数タスクを並行する場合、大きめの実装、PR 単位の作業では git worktree を使う。
