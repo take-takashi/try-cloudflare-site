@@ -81,8 +81,9 @@
 - PR を作成する際は Draft にしない。作成時点でレビュー可能な状態にする。
 - hook が定義されている場合は迂回しない。
 - pre-commit は軽量検証のみを想定し、最終確認は必要に応じて `mise run check` または `mise run verify` で行う。
-- 複数タスクを並行する場合、大きめの実装、PR 単位の作業では git worktree を使う。
-- 小さな文書修正や単発の軽微な変更では、既存 worktree で作業してよい。
+- `main` 直下では作業せず、変更作業は必ず git worktree 上で行う。
+- 作業開始時にタスクごとの branch と worktree を作成し、その worktree 内で編集、検証、commit を行う。
+- 例外は、ユーザーが明示的に `main` 直下での作業を指示した場合、または worktree 作成前の状態確認、fetch、branch 一覧確認など変更を伴わない操作に限る。
 - worktree は `.worktree/<branch-name>` に作る。branch 名に `/` が含まれる場合、path では `/` を `--` に置き換える。
 - branch 名は `<type>/<topic>` を基本とし、`<type>` は Conventional Commits の type に合わせる。
 - worktree や branch は必要に応じて作成してよいが、削除や初期化はユーザー確認なしに行わない。
