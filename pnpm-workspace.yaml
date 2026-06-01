@@ -8,3 +8,8 @@ allowBuilds:
   workerd: true
 
 minimumReleaseAge: 10080
+
+# @astrojs/check -> yaml-language-server が脆弱な yaml を固定しているため、
+# 上流更新で解消できるまで patched version に差し替える。
+overrides:
+  yaml: 2.9.0
