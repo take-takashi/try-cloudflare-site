@@ -19,8 +19,9 @@
 - Husky は `9.1.7` に固定し、`pre-commit` では `mise run check` を実行する。
 - Husky の `post-checkout` は `node_modules` が無い場合だけ `mise run install` を実行し、新規 worktree 作成直後の依存関係を用意する。
 - `mise run dev` は FE と BE をまとめて起動する。
-- `mise run dev` は root 直下の補助 script を使わず、mise task の command 内で FE / BE の起動順と port を制御する。
+- `mise run dev` は `scripts/start_dev_servers_with_available_ports.sh` で FE / BE の起動順と port を制御する。
 - Backend は Wrangler + Hono で起動する。API の空き port は Astro に `PUBLIC_API_BASE_URL` として渡す。
+- Web は API の `/health` が応答してから起動する。
 - 実行直前だけ環境変数を変更する運用は禁止する。環境やモードは mise task の usage で定義した引数として渡す。
 
 ## 依存関係のセキュリティ運用
